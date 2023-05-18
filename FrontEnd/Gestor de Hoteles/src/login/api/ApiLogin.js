@@ -12,7 +12,7 @@ export const login = async(email, password) => {
         Swal.fire({
         icon: "error",
         title: "Algo salió mal :(",
-        text: "No pudiste iniciar sesion pipipi ",
+        text: "No pudiste iniciar sesion",
         });
         console.log(err)
     }
