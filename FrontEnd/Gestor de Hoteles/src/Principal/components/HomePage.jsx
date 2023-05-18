@@ -1,3 +1,4 @@
+import React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import '../styles/Principal.css'
 export const HomePage = () =>{

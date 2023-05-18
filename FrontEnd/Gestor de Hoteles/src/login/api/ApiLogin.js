@@ -1,7 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const URL = "http://localhost:3010/api/"
+const URL = "http://localhost:3000/api/"
 export const login = async(email, password) => {
     try{
         const response = await axios.post(`${URL}login`, {email, password})
@@ -14,5 +14,6 @@ export const login = async(email, password) => {
         title: "Algo salió mal :(",
         text: "No pudiste iniciar sesion pipipi ",
         });
+        console.log(err)
     }
 }

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { login } from "../api/ApiLogin";
 import Swal from "sweetalert2";
 import "../styles/login.css"
+import { Link } from 'react-router-dom';
+import { Navigate } from 'react-router-dom'
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,8 +11,8 @@ export const Login = () => {
 
         const SignIn = async(e) =>{
           e.preventDefault();
-          const result = await login(email, password)
-          if (result) {
+          const user = await login(email, password)
+          if (user) {
             Swal.fire({
               icon: "success",
               title: "Por fin",
@@ -18,9 +20,9 @@ export const Login = () => {
               confirmButtonText: "Ok"
             }).then((r) => {
               if (r.isConfirmed) {
-                window.location.href = "/";
+                return window.location.href="/"; 
               }else{
-                window.location.href = "/";
+                return window.location.href="/";
               }
 
             })
@@ -32,7 +34,7 @@ export const Login = () => {
     <div className="container">
       <div className="card"> 
       <form>
-      <h2 class="card-title">Iniciar Sesión</h2>
+      <h2 className="card-title">Iniciar Sesión</h2>
         <div className="form-group">
           <label className="label">Correo Electrónico</label>
           <input
@@ -63,6 +65,12 @@ export const Login = () => {
           Iniciar Sesión
         </button>
       </form>
+      <p>
+          ¿No tienes una cuenta?{' '}
+          <Link to="/create-user" className="register-link">
+            Regístrate aquí
+          </Link>
+        </p>
       </div>
       </div>
     </>
